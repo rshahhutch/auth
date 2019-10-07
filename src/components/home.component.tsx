@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
-//import Auth from './components/auth/auth.component';
 
-class App extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2> Home</h2>
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
       </div>
-      ///<Auth/>
     );
   }
 }
 
-export default App;
+export default Home;
