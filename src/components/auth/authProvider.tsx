@@ -5,12 +5,9 @@ const config = {
     authority: 'https://login.microsoftonline.com/fredhutch.onmicrosoft.com',
     clientId: '0ba14a1d-d6d9-4158-b451-d334efd5243b',
     redirectUri: 'http://localhost:3000'
-  }
-  // ,
-  // cache: {
-  //   cacheLocation: "localStorage",
-  //   storeAuthStateInCookie: true
-  // }
+  },
+  cacheLocation: "sessionStorage",
+  storeAuthStateInCookie: true
 };
  
 const authenticationParameters = {
