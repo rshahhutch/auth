@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { AzureAD, LoginType, AuthenticationState, AuthenticationActions } from 'react-aad-msal';
 import { basicReduxStore } from './redux/reduxStore';
-//import GetIdTokenButton from './GetIdTokenButton';
+import GetAccessToken from './GetAccessToken';
 
 // Import the authentication provider which holds the default settings
 import { authProvider } from './auth/authProvider';
@@ -40,7 +40,7 @@ const LoginButtonLaunch: React.FC = (props: any) => {
               <button onClick={logout} className="Button">
                 Logout
               </button>
-              
+              <GetAccessToken provider={authProvider} />
             </React.Fragment>
           );
         } else if (authProvider.authenticationState  === AuthenticationState.Unauthenticated) {

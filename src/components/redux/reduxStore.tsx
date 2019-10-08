@@ -1,8 +1,9 @@
 
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { AuthenticationActions, AuthenticationState } from 'react-aad-msal';
-
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 const initialState = {
   initializing: false,
   initialized: false,
@@ -10,6 +11,8 @@ const initialState = {
   accessToken: null,
   state: AuthenticationState.Unauthenticated,
 };
+
+const middleware = [thunk];
 
 const rootReducer = (state = initialState, action : any) => {
   switch (action.type) {
@@ -61,6 +64,8 @@ const rootReducer = (state = initialState, action : any) => {
 
 export const basicReduxStore = createStore(
   rootReducer,
+  initialState as any,
+  composeWithDevTools(applyMiddleware(...middleware))
   // Enable the Redux DevTools extension if available
   /// See more: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfiblj
   //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
