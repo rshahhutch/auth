@@ -4,7 +4,8 @@ const config = {
   auth: {
     authority: 'https://login.microsoftonline.com/fredhutch.onmicrosoft.com',
     clientId: '0ba14a1d-d6d9-4158-b451-d334efd5243b',
-    redirectUri: 'http://localhost:3000'
+    redirectUri: 'http://localhost:3000',
+    postLogoutRedirectUri: 'https://discovery.fredhutch.org/'
   },
   cacheLocation: "sessionStorage",
   storeAuthStateInCookie: true
