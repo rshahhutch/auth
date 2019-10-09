@@ -8,6 +8,7 @@ import { basicReduxStore } from './components/redux/reduxStore';
 import Home from './components/home.component';
 import { Switch, Route } from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom'
+import PopOutExample from './components/popoutexample.component';
 //import Auth from './components/auth/auth.component';
 
 const App: React.FC = (props: any) => {
@@ -53,7 +54,8 @@ const App: React.FC = (props: any) => {
             <Router>
               <React.Fragment>
               <Switch>            
-                <Route path="/" component={Home} />             
+                <Route path="/" component={PopOutExample} />             
+                <Route path="/popout" component={PopOutExample} />      
               </Switch>
               </React.Fragment>
             </Router>

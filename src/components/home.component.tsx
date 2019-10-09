@@ -26,7 +26,7 @@ const Home: React.FC = (props: any) => {
           <h2> Home</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
+          To get started, asdfdsfedit <code>src/App.tsx</code> and save to reload.
         </p>
         <button onClick={logout} className="Button">
                 Logout
