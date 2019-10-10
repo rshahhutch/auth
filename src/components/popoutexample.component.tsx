@@ -9,7 +9,8 @@ import  primarySites from '../data.json';
 import React from 'react';
 import { blue } from '@material-ui/core/colors';
 import { ValueType } from 'react-select/src/types';
-import { MenuItem, Checkbox, ListItemText } from '@material-ui/core';
+import { MenuItem, Checkbox, ListItemText, Grid } from '@material-ui/core';
+import { minWidth } from '@material-ui/system';
 
 //const { colors } = defaultTheme;
 
@@ -38,7 +39,7 @@ type State = { isOpen: boolean, value: Object };
 const PopOutExample: React.FC = (props: any) => {
   //state = { isOpen: false, value: undefined };
   const [isOpen, setIsOpen] = React.useState(false);
-  const [value, setValue] = React.useState<ValueType<OptionType>[]>([]);
+  const [value, setValue] = React.useState<ValueType<OptionType>>([]);
 
 
   function toggleOpen()
@@ -48,7 +49,7 @@ const PopOutExample: React.FC = (props: any) => {
     console.log(value);
 
   };
-  function onSelectChange (value : any )
+  function onSelectChange (value : ValueType<OptionType> )
   {
     toggleOpen();
     setValue(value);
@@ -62,19 +63,19 @@ const PopOutExample: React.FC = (props: any) => {
       <p className="App-intro">
         To get started, asdfdsfedit <code>src/App.tsx</code> and save to reload.
       </p>
-     
+      <Grid container>
+      <Grid item xs={12} sm={12} md={2} lg={2}>
+      </Grid>
+      <Grid item xs={12} sm={12} md={2} lg={2}>
         <Dropdown
          isOpen={isOpen}
          onClose={toggleOpen}
           target={
-            <button onClick={toggleOpen} className="Button">
-              {value.length !== 0 ? ( value && value.length === 1 ?  `State: ${value}` : value.length) : 'Select a State'}
+            <button onClick={toggleOpen} style={{minWidth : 240}} className="Button">
+              {value && Object.values(value).length !== 0 ? ( value && Object.values(value).length === 1 ?  `State: ${ value  && Object.values(value)[0].value}` : `State: ${ value && Object.values(value)[0].value } ${Object.values(value).length} `) : 'Select a State'}
             </button>
            
-          }> 
-
-       
-        
+          }>      
         <Select
           autoFocus
           backspaceRemovesValue={false}
@@ -91,9 +92,11 @@ const PopOutExample: React.FC = (props: any) => {
           value={value}
           isMulti={true}
         >
-          
+           
           </Select>
         </Dropdown> 
+        </Grid>
+        </Grid>
       </div>
     );
 }
@@ -111,10 +114,13 @@ const Menu = (props : any) => {
         boxShadow: `0 0 0 1px ${shadow}, 0 4px 11px ${shadow}`,
         marginTop: 8,
         position: 'absolute',
+        maxWidth: 240,
         zIndex: 2,
-      }}
+      }}      
       {...props}
     />
+
+  
   );
 };
 const Blanket =(props : any) => (
@@ -131,7 +137,7 @@ const Blanket =(props : any) => (
   />
 );
 const Dropdown = ({ children, isOpen, target, onClose } : { children : any, isOpen : any, target : any, onClose : any }) => (
-  <div css={{ position: 'relative' }}>
+  <div css={{ position: 'relative',minWidth: 240 }}>
     {target}
     {isOpen ? <Menu>{children}</Menu> : null}
     {isOpen ? <Blanket onClick={onClose} /> : null}
