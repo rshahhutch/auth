@@ -76,8 +76,7 @@ const PopOutExample: React.FC = (props: any) => {
             // <button onClick={toggleOpen} style={{minWidth : 240}} className="Button">
             //   {value && Object.values(value).length !== 0 ? ( value && Object.values(value).length === 1 ?  `State: ${ value  && Object.values(value)[0].value}` : `State: ${ value && Object.values(value)[0].value } ${Object.values(value).length} `) : 'Select a State'}
             // </button>
-            <Button onClick={toggleOpen} style={{minWidth : 240}} className="Button">
-              
+            <Button onClick={toggleOpen} style={{minWidth : 240}} className="Button">              
             {value && Object.values(value).length !== 0 ? ( value && Object.values(value).length === 1 ?  `State: ${ value  && Object.values(value)[0].value}` : `State: ${ value && Object.values(value)[0].value }  +${Object.values(value).length} `) : 'Select a State'}
             <ArrowDropDownIcon />
           </Button>
