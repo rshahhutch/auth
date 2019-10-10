@@ -58,17 +58,7 @@ const PopOutExample: React.FC = (props: any) => {
   };
 
     return (
-      // <div className="App">
-      // <div className="App-header">
-      //   <h2> Home</h2>
-      // </div>
-      // <p className="App-intro">
-      //   To get started, asdfdsfedit <code>src/App.tsx</code> and save to reload.
-      // </p>
-      // <Grid container>
-      // <Grid item xs={12} sm={12} md={2} lg={2}>
-      // </Grid>
-      // <Grid item xs={12} sm={12} md={2} lg={2}>
+ 
         <Dropdown
          isOpen={isOpen}
          onClose={toggleOpen}
@@ -98,18 +88,14 @@ const PopOutExample: React.FC = (props: any) => {
           value={value}
           isMulti={true}
         >
-           
           </Select>
         </Dropdown> 
-      //   </Grid>
-      //   </Grid>
-      // </div>
+     
     );
 }
 
 
 // styled components
-
 
 function Option(props: OptionProps<OptionType>) {
   return (
@@ -143,9 +129,7 @@ const Menu = (props : any) => {
         zIndex: 2,
       }}      
       {...props}
-    />
-
-  
+    />  
   );
 };
 const Blanket =(props : any) => (
