@@ -38,7 +38,7 @@ const selectStyles = {
 
 type State = { isOpen: boolean, value: Object };
 
-const PopOutExample: React.FC = (props: any) => {
+const PopOutExampleOld: React.FC = (props: any) => {
   //state = { isOpen: false, value: undefined };
   const [isOpen, setIsOpen] = React.useState(false);
   const [value, setValue] = React.useState<ValueType<OptionType>>([]);
@@ -200,4 +200,4 @@ const ChevronDown = () => (
 );
 
 
-export default PopOutExample;
+export default PopOutExampleOld;
