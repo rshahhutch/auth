@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { jsx } from '@emotion/core';
-import Button from '@atlaskit/button';
-//import { Typography, Button, makeStyles, Avatar } from "@material-ui/core";
+//import Button from '@atlaskit/button';
+import { Typography, Button, makeStyles, Avatar } from "@material-ui/core";
 
 import Select from 'react-select';
 //import { defaultTheme } from 'react-select';
@@ -11,6 +11,8 @@ import { blue } from '@material-ui/core/colors';
 import { ValueType } from 'react-select/src/types';
 import { MenuItem, Checkbox, ListItemText, Grid } from '@material-ui/core';
 import { minWidth } from '@material-ui/system';
+import { OptionProps } from "react-select/src/components/Option";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 //const { colors } = defaultTheme;
 
@@ -31,7 +33,7 @@ const stateOptions: OptionType[] = primarySites.map(suggestion => ({
 
 const selectStyles = {
   control: (provided : any )=> ({ ...provided, minWidth: 240, margin: 8 }),
-  menu: () => ({ boxShadow: 'inset 0 1px 0 rgba(0, 0, 0, 0.1)' }),
+  menu: () => ({ boxShadow: 'inset 0 1px 0 rgba(0, 0, 0, 0.1)', margin: 8, textAlign: "left" as "left" }),
 };
 
 type State = { isOpen: boolean, value: Object };
@@ -71,9 +73,14 @@ const PopOutExample: React.FC = (props: any) => {
          isOpen={isOpen}
          onClose={toggleOpen}
           target={
-            <button onClick={toggleOpen} style={{minWidth : 240}} className="Button">
-              {value && Object.values(value).length !== 0 ? ( value && Object.values(value).length === 1 ?  `State: ${ value  && Object.values(value)[0].value}` : `State: ${ value && Object.values(value)[0].value } ${Object.values(value).length} `) : 'Select a State'}
-            </button>
+            // <button onClick={toggleOpen} style={{minWidth : 240}} className="Button">
+            //   {value && Object.values(value).length !== 0 ? ( value && Object.values(value).length === 1 ?  `State: ${ value  && Object.values(value)[0].value}` : `State: ${ value && Object.values(value)[0].value } ${Object.values(value).length} `) : 'Select a State'}
+            // </button>
+            <Button onClick={toggleOpen} style={{minWidth : 240}} className="Button">
+              
+            {value && Object.values(value).length !== 0 ? ( value && Object.values(value).length === 1 ?  `State: ${ value  && Object.values(value)[0].value}` : `State: ${ value && Object.values(value)[0].value }  +${Object.values(value).length} `) : 'Select a State'}
+            <ArrowDropDownIcon />
+          </Button>
            
           }>      
         <Select
@@ -103,6 +110,25 @@ const PopOutExample: React.FC = (props: any) => {
 
 
 // styled components
+
+
+function Option(props: OptionProps<OptionType>) {
+  return (
+    <MenuItem
+      ref={props.innerRef}
+      selected={props.isFocused}
+      component="div"
+      style={{
+        fontWeight: props.isSelected ? 500 : 400,
+        whiteSpace: "normal",      
+      }}
+      {...props.innerProps}
+    >
+      {props.children}
+    </MenuItem>
+  
+  );
+}
 
 const Menu = (props : any) => {
   const shadow = 'hsla(218, 50%, 10%, 0.1)';
