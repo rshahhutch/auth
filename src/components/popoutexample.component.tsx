@@ -5,7 +5,7 @@ import { Typography, Button, makeStyles, Avatar } from "@material-ui/core";
 
 import Select from 'react-select';
 //import { defaultTheme } from 'react-select';
-import  primarySites from '../data.json';
+//import  primarySites from '../data.json';
 import React from 'react';
 import { blue } from '@material-ui/core/colors';
 import { ValueType } from 'react-select/src/types';
@@ -25,10 +25,10 @@ interface OptionType {
 
 
 
-const stateOptions: OptionType[] = primarySites.map(suggestion => ({
-  value: suggestion,
-  label: suggestion
-}));
+// const stateOptions: OptionType[] = primarySites.map(suggestion => ({
+//   value: suggestion,
+//   label: suggestion
+// }));
 
 
 const selectStyles = {
@@ -38,7 +38,7 @@ const selectStyles = {
 
 type State = { isOpen: boolean, value: Object };
 
-const PopOutExample: React.FC = (props: any) => {
+const PopOutExample = ( props : any) => {
   //state = { isOpen: false, value: undefined };
   const [isOpen, setIsOpen] = React.useState(false);
   const [value, setValue] = React.useState<ValueType<OptionType>>([]);
@@ -81,7 +81,7 @@ const PopOutExample: React.FC = (props: any) => {
           isClearable={false}
           menuIsOpen
           onChange={onSelectChange}
-          options={stateOptions}
+          options={props.data}
           placeholder="Search..."
           styles={selectStyles}
           tabSelectsValue={false}
