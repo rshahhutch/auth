@@ -2,10 +2,11 @@ import { MsalAuthProvider, LoginType } from 'react-aad-msal';
  
 const config = {
   auth: {
-    authority: 'https://login.microsoftonline.com/fredhutch.onmicrosoft.com',
-    clientId: '0ba14a1d-d6d9-4158-b451-d334efd5243b',
-    redirectUri: 'http://localhost:3000',
-    postLogoutRedirectUri: 'https://discovery.fredhutch.org/'
+    authority: 'https://cddiauth.b2clogin.com/cddiauth.onmicrosoft.com/B2C_1_google',
+    clientId: '77e94975-22fc-433a-8d9f-71d1a77deba0',
+    redirectUri: 'https://jwt.ms',
+    postLogoutRedirectUri: 'http://localhost:3000/',
+    validateAuthority: false
   },
   cacheLocation: "sessionStorage",
   storeAuthStateInCookie: true
@@ -14,7 +15,6 @@ const config = {
 const authenticationParameters = {
   scopes: [
     "openid",
-    "9e28acc9-dc44-461c-9438-6708bcc2a035/user_impersonation"
   ]
 }
  
